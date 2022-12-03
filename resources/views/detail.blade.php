@@ -38,7 +38,15 @@
                        <small>
                            (CREATED AT: {{$crawl->created_at}})
                        </small>
-                        <img src="{{asset($crawl->screenshot)}}" width="100%">
+                       @if($crawl->screenshot!="")
+                            <img src="{{asset($crawl->screenshot)}}" width="100%">
+                        @else
+                        <br>
+                        <span>
+                            NO SCREENSHOT
+                        </span>
+                            
+                        @endif
                     </div>
 
                 </div>
@@ -56,7 +64,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 text-right">
                        <h1>DESCRIPTION</h1>
-                        {{($crawl->description!="NULL")?$crawl->description:''}}
+                        {{($crawl->description!="NULL")?$crawl->description:'NO DESCRIPTION'}}
                     </div>
 
                 </div>
@@ -65,7 +73,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8 text-right">
                        <h1>BODY</h1>
-                        {{($crawl->body!=NULL)?$crawl->body:''}}
+                        {!!($crawl->body!=NULL)?$crawl->body:''!!}
                     </div>
 
                 </div>

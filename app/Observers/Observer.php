@@ -1,6 +1,6 @@
 <?php
 namespace App\Observers;
-
+header('Content-Type:text/html; charset=UTF-8');
 use App\Models\Crawler;
 use Psr\Http\Message\UriInterface;
 
@@ -59,7 +59,7 @@ class Observer extends CrawlObserver
     		'status'=>$response->getStatusCode(),
     		'title'=>$title,
     		'description'=>$description,
-    		'body'=>$response->getBody()
+    		'body'=>$this->getBody($url)
     	]);
 
     	
@@ -118,6 +118,25 @@ class Observer extends CrawlObserver
         $title = preg_replace('/\s+/', ' ', $title_matches[1]);
         $title = trim($title);
         return $title;
+
+    }
+
+    // get the body of scrawled url
+    public function getBody($url){
+
+    	$file = file_get_contents($url); 
+
+        $dom = new \DOMDocument;
+        libxml_use_internal_errors(true);
+        $dom->loadHTML($file);
+        $bodies = $dom->getElementsByTagName('body');
+        assert($bodies->length === 1);
+        $body = $bodies->item(0);
+        // for ($i = 0; $i < $body->children->length; $i++) {
+        //     $body->remove($body->children->item($i));
+        // }
+        $stringbody = $dom->saveHTML($body);
+        return $stringbody;
 
     }
     // get the description of scrawled url

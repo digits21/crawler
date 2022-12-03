@@ -47,7 +47,7 @@
 
                         <!-- submit button -->
                             <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-lg float-right" onclick="submitForm()">Submit
+                                <button type="button" class="btn btn-primary btn-lg float-right" onclick="submitForm()">Crawl
                                 </button>
                             </div>
                             
