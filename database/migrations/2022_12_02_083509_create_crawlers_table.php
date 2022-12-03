@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('crawlers', function (Blueprint $table) {
             $table->id();
             $table->string('url',255);
-            $table->string('title');
-            $table->text('description')
+            $table->string('serial_number');
+            // $table->string('unique_number')->unique();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->text('body')->nullable();
             $table->integer('status')->default(0);
             $table->text('screenshot')->nullable();
             $table->timestamps();
