@@ -136,6 +136,7 @@ class Observer extends CrawlObserver
         //     $body->remove($body->children->item($i));
         // }
         $stringbody = $dom->saveHTML($body);
+        //$stringbody=substr($stringbody,0,1000).'</body>';
         return $stringbody;
 
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             // $table->string('unique_number')->unique();
             $table->string('title')->nullable();
             $table->text('description')->nullable();
-            $table->text('body')->nullable();
+            $table->longText('body')->nullable();
             $table->integer('status')->default(0);
             $table->text('screenshot')->nullable();
             $table->timestamps();
