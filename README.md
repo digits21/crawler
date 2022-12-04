@@ -23,5 +23,5 @@
 
 # Usage:
 
-	Test URL that can be used: `https:waridojo.teachable.com`
+	Test URL that can be used: `https://ourbantaba.com/`
 
